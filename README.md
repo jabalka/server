@@ -81,7 +81,7 @@ To get started with DevPlace API, follow these steps:
      ```bash
      GET /projects
      ```
-  + *Query parameters:*
+      *Query parameters:*
     - page (default: 1)
     - pageSize (default: 2)
     - _ownerId (optional)
@@ -89,7 +89,7 @@ To get started with DevPlace API, follow these steps:
      ```bash
      POST /projects
      ```
-  + *Request body:*
+      *Request body:*
      ```bash
      {
       "title": "Project Title",
@@ -113,20 +113,20 @@ To get started with DevPlace API, follow these steps:
 ### Users
 + ***Register a new user:***
      ```bash
-  POST /user/register
-   ```
-+ *Request body:*
-  ```bash
+      POST /user/register
+     ```
+    *Request body:*
+     ```bash
   {
     "email": "user@example.com",
     "password": "password123!"
   }
-   ```
+     ```
 + ***Login a user:***
     ```bash
   POST /user/login
    ```
-+ *Request body:*
+    *Request body:*
   ```bash
   {
     "email": "user@example.com",
