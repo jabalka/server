@@ -68,11 +68,12 @@ To get started with DevPlace API, follow these steps:
 
 ## Usage
 
-**Running the Server**
-To start the server, use the following command:
-     ```bash
-     npm start
-     ```
+  **Running the Server**
+  
+  To start the server, use the following command:
+  ```bash
+  npm start
+  ```
 ## API Endpoints
 
 ### Projects
