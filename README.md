@@ -1,5 +1,3 @@
-server written on Node.js to be used on DevGarden Angular application
-
 # DevPlace Server API
 
 ## Table of Contents
