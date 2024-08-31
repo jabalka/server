@@ -74,7 +74,7 @@ To get started with DevPlace API, follow these steps:
    ```
 ## API Endpoints
 
-###Projects###
+##Projects##
   + ***Get all projects:***
    ```bash
    GET /projects
@@ -108,7 +108,7 @@ To get started with DevPlace API, follow these steps:
      ```bash
   DELETE /projects/:id
    ```
-###Users###
+##Users##
 + ***Register a new user:***
      ```bash
   POST /user/register
