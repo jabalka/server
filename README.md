@@ -54,49 +54,51 @@ To get started with DevPlace API, follow these steps:
 
 ### Steps
 1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/jabalka/server.git
-   cd devplace
+     ```bash
+     git clone https://github.com/jabalka/server.git
+     cd devplace
+     ```
 2. **Install dependencies:**
-   ```bash
-   npm install   
+     ```bash
+     npm install
+     ```  
 3. **Set up environment variables: Create a .env file in the root directory and add your MongoDB connection string and any other necessary configuration.**
 
 4. **Run MongoDB: Ensure you have MongoDB running locally or use a MongoDB service.**
 
 ## Usage
 
-  **Running the Server**
-  To start the server, use the following command:
-   ```bash
-   npm start
-   ```
+**Running the Server**
+To start the server, use the following command:
+     ```bash
+     npm start
+     ```
 ## API Endpoints
 
 ### Projects
   + ***Get all projects:***
-   ```bash
-   GET /projects
-   ```
+     ```bash
+     GET /projects
+     ```
   + *Query parameters:*
     - page (default: 1)
     - pageSize (default: 2)
     - _ownerId (optional)
   + ***Create a new project:***
-   ```bash
-   POST /projects
-  ```
+     ```bash
+     POST /projects
+     ```
   + *Request body:*
-   ```bash
-   {
-    "title": "Project Title",
-    "description": "Project Description",
-    "language": "JavaScript",
-    "code": "console.log('Hello, world!');"
-      }
-   ```
+     ```bash
+     {
+      "title": "Project Title",
+      "description": "Project Description",
+      "language": "JavaScript",
+      "code": "console.log('Hello, world!');"
+     }
+       ```
 + ***Get a project by ID:***
-   ```bash
+     ```bash
   GET /projects/:id
    ```
 + ***Update a project by ID:***
