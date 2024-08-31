@@ -9,7 +9,6 @@ server written on Node.js to be used on DevGarden Angular application
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
-  - [Running the Server](#running-the-server)
   - [API Endpoints](#api-endpoints)
     - [Projects](#projects)
     - [Users](#users)
