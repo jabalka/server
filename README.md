@@ -149,10 +149,10 @@ To start the server, use the following command:
   DELETE /user/profile/:id
    ```
 + ***Upload profile picture:***
+*Multipart/form-data with profilePicture field*
     ```bash
   PUT /user/profile-picture
    ```
-+ *Multipart/form-data with profilePicture field*
 
 ## Middleware
 
