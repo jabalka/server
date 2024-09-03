@@ -110,8 +110,9 @@ async function updateUser(query, data, options = {}){
                 fs.unlinkSync(oldProfilePicPath);
             }
         }
-        if(data.password){
+        if(data.password){        
             updateData.hashedPassword = await bcrypt.hash(data.password, 10);
+            delete updateData.password;
         }
         const updatedUser = await User.findOneAndUpdate(query, updateData, {new: true, ...options});
         if(!updatedUser){

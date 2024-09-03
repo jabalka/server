@@ -183,8 +183,14 @@ router.put('/profile', auth(), upload.single('profilePicture'), async (req, res)
           throw new Error('Password must contain at least one number and one special character: e.g. (!@#$%^&*()_+)');
         }
       }
-
-      const updatedUser = await updateUser({ email: email}, data, {runValidators: true, new: true})
+      const filteredData = Object.entries(data).reduce((acc, [key, value]) => {
+        if(value !== undefined){
+            acc[key] = value;
+        }
+        return acc;
+      }, {});
+      const updatedData = {...user.toObject(), ...filteredData}
+      const updatedUser = await updateUser({ email: email}, updatedData, {runValidators: true, new: true})
        .then(user => {
         res.status(200).json(user);
         })
@@ -192,74 +198,6 @@ router.put('/profile', auth(), upload.single('profilePicture'), async (req, res)
     } catch (error){
         res.status(error.status || 400).json({ message: error.message });
     }
-    // try{
-    //     const email = req.body.email;
-    //     const data = req.body;
-    //         // Validate password if provided
-    // if (data.password) {
-    //     if (data.password.trim().length <= 8) { // Replace with your actual minimum length
-    //       throw new Error('Password must be at least 8 characters long');
-    //     } else if (!/[0-9]/.test(data.password.trim()) || !/[!@#$%^&*()_+]/.test(data.password.trim())) {
-    //       throw new Error('Password must contain at least one number and one special character: e.g. (!@#$%^&*()_+)');
-    //     }
-    //   }
-
-    //   const updatedUser = await updateUser({ email: email}, data, {runValidators: true, new: true})
-    //    .then(user => {res.status(200).json(user)})
-    //    .catch(error =>  res.status(error.status || 400).json({ message: error.message }));
-
-    // } catch (error){
-    //     console.error("Error updating user:", error);
-    //     res.status(error.status || 400).json({ message: error.message });
-    // }
-    //__________________________________________________________________
-    // try{
-    //     const id = req.user_id;
-    //     console.log('userController., req ***********************', req, '****************END************************')
-    //     console.log('userController ln115., req.user:', req.user)
-    //         //{} inside all the data from the re.body
-    //     const data = req.body;
-    //     console.log('userController., ln 118, data:', data);
-    //     if(data.password){
-    //         if (data.password.trim().length <= 8) { // Replace with your actual minimum length
-    //             throw new Error('Password must be at least 8 characters long');
-    //         } else if (!/[0-9]/.test(data.password.trim()) || !/[!@#$%^&*()_+]/.test(data.password.trim())) {
-    //             throw new Error('Password must contain at least one number and one special character: e.g. (!@#$%^&*()_+)');
-    //         }
-    //     }
-    //     const updatedUser = await updateUser({ _id: id}, data, {runValidators: true, new: true} )
-    //     .then(user => {res.status(200).json(user)})
-    //     .catch(error =>  res.status(error.status || 400).json({ message: error.message }));
-
-    // } catch(error){
-    //     console.error('Error updating user:', error);
-    //     res.status(error.status || 400).json({ message: error.message });
-    // }
-            // everything below is done by the "findOneAndUpdate above and the req handler following"
-        
-        // const user = await findUserById(id);
-        // if (!user) {
-        //     return res.status(404).json({ error: 'User not found' });
-        // }
-        // if (email && !email.trim()) {
-        //             throw new Error('Email is required!');
-        // }
-        // if(password){
-        //     if (password.trim().length < 8) { // Replace with your actual minimum length
-        //         throw new Error('Password must be at least 8 characters long');
-        //     } else if (!/[0-9]/.test(password.trim()) || !/[!@#$%^&*()_+]/.test(password.trim())) {
-        //         throw new Error('Password must contain at least one number and one special character: e.g. (!@#$%^&*()_+)');
-        //     }
-        // }
-        // const updateData = {};
-        // if(email){
-        //     updateData.email = email.trim();
-        // }
-        // if(password){
-        //     updateData.password = password.trim();
-        // }
-        // const updateUser = await updateUser( id, updateData );
-        // res.json(updateUser);
 });
 
 router.put('/:id', auth(), isAuth(), async (req, res) => {
